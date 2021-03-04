@@ -1,0 +1,283 @@
+===============================
+DIcEd--Desktop Icon Editor v1.2    DAL Systems 
+
+by David A. Lyons     25-Feb-89    (updated 4-Mar-2021 DAL)
+===============================
+
+DIcEd lets you create and modify icons stored in icon files.  Icon
+files are used by the Finder and are stored in a disk's ICONS
+folder.
+
+DIcEd was Shareware, but now it's free.
+
+DIcEd requires System Disk 3.2 or later.
+
+Here's a list of all the menu items in DIcEd and how to use them.
+
+----------
+Apple menu
+----------
+About DIcEd--displays information about Desktop Icon Editor,
+  including the amount of RAM currently unused in your machine.
+
+Special Keys--shows a summary of special keys available in Edit
+  Icon windows.
+
+Help--displays this file ("Diced.help") in a window.  You can then
+  print the help with Print Text in the File menu.
+
+Desk Accessories--if you have any NDAs (New Desk Accessories) in
+  the SYSTEM/DESK.ACCS folder of your boot disk, they will be
+  available in the Apple menu.
+
+---------
+File menu
+---------
+New--opens a window for a brand-new (empty) Icon file.
+
+Open...--open a window for an existing icon file of your choice.
+  It uses a Standard File dialog, so you can use Tab or the Disk
+  button to change disks, Apple-period for the Cancel button, and
+  ESC for the Close button (or click on the patname above the
+  list).  Click twice on the file you want to open, or click once
+  and use the Open button.  The up and down arrows also work.
+
+  There are three buttons in an Icon File window:  Prev (moves
+  back one icon), Next (moves forward one icon), and Edit (opens a
+  window for editing the current icon).  Any number of Icon File
+  windows and Edit Icon windows can be open at once.
+  
+  An Edit Icon window contains a Save button that copies its icon
+  back into its parent window.
+  
+  In an Icon File window, the left arrow is like the Prev button,
+  the right arrow is like the Next button, and Return or Enter is
+  like the Edit button.  Also, Apple-left-arrow moves to the first
+  icon in the file, and Apple-right-arrow moves to the last icon
+  in the file.
+
+Close--closes whatever window is in front.  If the window belongs
+  to DIcEd (meaning it's not a Desk Accessory window) and contains
+  work that hasn't been saved, you'll be asked whether it's okay
+  to throw away the changes.  If the window is an Icon File
+  window, any "child" windows containing icons being edited are
+  closed first.
+
+Close All--closes all the open windows.  Just like choosing Close
+  repeatedly until there aren't any windows open.
+
+Save...--saves an icon file to disk using the same name.  This
+  item is available only when an Icon File window (rather than
+  an Edit Icon window or some other window) is in front.  If the
+  window's name is "Untitled" then Save asks for a name just like
+  Save As... does.
+
+Save As...--saves an icon file to disk using a new name.
+
+Save As Source...--creates a text file containing a fragment of
+  source code for APW C, APW/ORCA Assembler, or Merlin.  A block
+  of bytes is generated for each icon in the front Icon File
+  window.  (The resulting memory image is appropriate for use with
+  DrawIcon but *not* as an iconItem in a dialog.)
+
+Print Text (slot 1)--Prints the contents of the front window to a
+  printer in slot 1.  Available when the front window is the Help
+  window or a View Text File window, and also when the Clipboard
+  window is in front and the clipboard contains text.  [Sorry--no
+  printing to LaserWriters at present.]
+
+Transfer to...--runs another program of your choice.  This may
+  save some time over Quitting to your program selector and
+  running another program from there.  If any windows are open,
+  they get closed first, and you get a chance to abort the
+  transfer and save your work.  (The filetype of the next program
+  must be SYS or S16.)
+
+Quit--quits DIcEd and puts you back where you came from (from the
+  Finder, for example).  Asks for confirmation and then closes all
+  windows, giving you a chance to abort and save your work.
+
+---------
+Edit menu
+---------
+Undo--Restores the front Icon File or Edit Icon window to the way
+  it was before the last interesting operation.  Undo a second
+  time always undoes the first Undo, so you can toggle back and
+  forth between two states.  Undo is also useful with some desk
+  accessories.
+
+Copy--If the front window is an Icon File or Edit Icon window,
+  the current icon is copied to the clipboard (in both PICT form
+  and in a special form containing information about the icon).
+  If the front window is a text file window (including the Help
+  window) then all the text is copied to the clipboard.  Copy is
+  also useful with some desk accessories.
+
+Cut--If the front window is an Icon File window, the current icon
+  is copied to the clipboard and then removed from the window.
+  Cut is also useful with some desk accessories.
+
+Paste--If the front window is an Icon File window, an icon on the
+  clipboard is inserted into the file immediately AFTER the
+  current icon.  (To add an icon at the very beginning of the
+  file, first use Prev to move all the way back to icon #0.)
+  After the icon is inserted, you get moved forward by one icon
+  automatically so that the new icon is the current one.  Paste
+  is also useful with some desk accessories.  
+
+Clear--If the front window is an Icon File window, the current
+  icon is removed from the file.  Just like Cut, except that the
+  icon is not copied to the clipboard first.  Clear is also useful
+  with some Desk Accessories.
+
+Show Clipboard--opens a window that displays the contents of the
+  Clipboard.  (If the window is already open, choosing this item
+  just brings it to the front.)
+
+---------
+Icon menu
+---------
+New Icon--adds a new icon to the icon file right after the current
+  icon and then moves forward one icon so that the new icon is
+  the current one.  The new icon is initially a black and white
+  piece of paper with the top right corner folded over.
+
+Edit Attributes--Presents a dialog allowing you to modify the
+  attributes of an icon:  The filetype, auxiliary type, name, and
+  application name associated with an icon.  Note the special
+  filetypes at the end of the list corresponding to things like
+  disks, drives, and trash cans.  There is also a "Color" check
+  box--if you check this box, the icon will always be drawn just
+  as you design it, never with extra coloring added.  (The small
+  and large versions of an icon have separate Color attributes,
+  so it matters whether you are viewing a Large or Small icon when
+  you choose Edit Attributes.)
+
+  Note that the "Application name" for an icon is for associating
+  a separate application with a group of document icons.  For
+  example, the application for BAS (Applesoft BASIC) program
+  documents is "*/BASIC.LAUNCHER".  (The "*" refers to the name
+  of the boot disk; you should use a "*" rather than putting in
+  the actual name of your boot disk.)
+  
+  Icons that show up for applications, rather than for documents,
+  should have blank application name fields.  For example, if
+  you want to make an icon for the Installer program found on
+  the System Tools 4.0 disk that comes with GS/OS, you should
+  set Filetype to S16, auxtype to 0, filename to INSTALLER, and
+  Application name should be blank.
+
+  Tip:  uppercase and lowercase letters are _different_ in the
+  filename field.  For example, if you want to make an icon
+  for your favorite game called SKI.JUMP, you should type it
+  like that in all capitals.  (This applies to ProDOS files;
+  GS/OS can in theory work with other file systems which don't
+  restrict filenames to all caps.)
+
+  A "*" in the filename field matches zero or more characters.
+  Use just a "*" to match any name; or use something like *.ROOT
+  to match all filenames ending in ".ROOT".
+
+Copy Image to Mask--calculates a new mask for an icon based on its
+  image.  A black pixel appears in the mask for each corresponding
+  non-white pixel in the image.  All other pixels in the mask will
+  be white.
+
+Copy Mask to Image--calculates a new image for an icon based on
+  its mask.  Each pixel in the image becomes the same color as the
+  corresponding pixel in the mask.
+
+Fill Image--sets every pixel in an icon's image to the color
+  selected in the color palette.
+
+Fill Mask--sets every pixel in an icon's mask to black if black
+  is selected in the color palette; otherwise sets every pixel to
+  white.
+
+---------
+View menu
+---------
+by Large Icon--
+by Small Icon--
+  Selects the large or small editions of icons.  Takes effect
+  immediately in all open Edit Icon windows.
+
+Plump Pixels--
+Fat Pixels--
+Fatter Pixels--
+Mongo Pixels--
+  Selects one of four different sizes for the fat pixels in
+  every Edit Icon window.  The usual size is Fat Pixels, and
+  the current setting is always shown by a check mark.
+
+------------
+Special menu
+------------
+View text file--opens a window for viewing a file of type TXT
+  (plain text) or SRC (Apple Programmer's Workshop source code).
+  The Help item in the Apple menu is really just View Text File
+  on "Diced.Help".  You can use Copy in the Edit menu to put the
+  text in a viewed file onto the clipboard, and you can Print a
+  viewed file to a printer in slot 1 using Print Text in the File
+  menu.
+
+Delete file--permanently removes a file of your choice from disk.
+
+Rename file--changes the name of a file of your choice.
+
+Next Window--sends the frontmost window to the back.  When a
+  desk accessory is in front, DIcEd's key equivalents don't work,
+  but you can still choose commands including Next Window from
+  their menus.
+
+Print Shareware Envelope--Prints, on your printer in slot 1, a
+  one-page pre-addressed form suitable for folding and mailing
+  with your comments and registration fee.
+
+-----------------
+Edit Icon windows
+-----------------
+Each Edit Icon window displays an image and mask for one icon.
+You make changes here and then click the Save button in the
+Icon File window to copy the changed back into the window the
+icon came from.
+
+Click on a small color square to choose a color.  Use the pencil
+to draw in that color.  If you make a mistake, just click on the
+pixel again and it will change back.  Holding the button down and
+moving around always continues the action that was started--either
+drawing in the current color or restoring pixels to their previous
+colors.
+
+Shortcut:  select a color by holding down Apple and clicking on a
+pixel of the color you want to draw in.
+
+To shift the position of an icon or its mask, hold down the Shift
+key (the pencil cursor changes into a hand) and hold down the
+mouse button while dragging the outline to a new location.  If
+you don't like the result, choose Undo from the Edit menu.
+
+To change the size of an icon, drag the bottom right corner of
+its image by the small square.  Note that the width will always
+be an even number of pixels.  The minimum size for an icon in
+DIcEd is 8x8, and the maximum is 64x64.
+
+To replace all pixels of one color with another color, choose the
+new color in the color palette; then hold down Option (the pencil
+cursor will change to a bow-tie) and click on any pixel of the
+color you want to replace.
+
+-----------------
+Technical details
+-----------------
+There is currently no officially-defined Scrap Manager type for
+Icon data.  DIcEd uses scrap type $4945 (ASCII "IE") for putting
+icons onto the clipboard.  This is the same type used by Paul
+Elseth's IconEd, so a convention has been established.
+
+--------
+Apple IIgs is a registered trademark of Apple Computer, Inc.
+
+--------------------------
+End of DIcEd documentation
+--------------------------

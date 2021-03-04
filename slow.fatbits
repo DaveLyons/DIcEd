@@ -1,0 +1,25 @@
+
+          SetPenSize(FatWidth-2,1);
+          if ctlh^^.CtrlFlag=0 then { main icon }
+          { %%% }
+            for row := height-1 downto 0 do
+              for col := width-1 downto 0 do begin
+                c := icGetPixel(icon,col,row);
+                if c<>15 then begin
+                  SetDithColor(c);
+                  MoveTo(r.left+FatWidth*col,r.top+FatHeight*row);
+                  Line(0,FatHeight-2);
+                end;
+              end
+          else begin { mask }
+            SetDithColor(0);
+            for row := height-1 downto 0 do
+              for col := width-1 downto 0 do begin
+                c := icGetPixel(icon,col,row+height);
+                if c<>0 then begin
+                  MoveTo(r.left+FatWidth*col,r.top+FatHeight*row);
+                  Line(0,FatHeight-2);
+                end;
+              end;
+          end;
+          SetPenSize(1,1);
